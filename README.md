@@ -1,5 +1,5 @@
 # Ezviz-cameras
-## Show several cameras using multiprocessing
+## Show several cameras
 ### [Using OpenCV python](camera.py)
 ### [Using VLC](camera.sh)
 ## Record video from camera
