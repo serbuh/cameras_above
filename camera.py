@@ -25,13 +25,12 @@ NINJA4_IP = '192.168.0.55'
 def showStream(cameraID: str, cameraIP: str):
     stream = "rtsp://admin:{id}@{ip}:554/H.264".format(id=cameraID, ip = cameraIP)
     vcap = cv2.VideoCapture(stream)
-    start = time.time()
     while(True):
         ret, frame = vcap.read()
 
         # uncomment this line to resize frame
         # frame = cv2.resize(frame, IMAGE_RES)
-        cv2.imshow(cameraID, frame)
+        cv2.imshow('{ID}-{IP}'.format(ID=cameraID,IP=cameraIP), frame)
 		#close the window by pressing 'q' on it
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break;
