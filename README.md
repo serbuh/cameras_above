@@ -13,3 +13,4 @@
 - multiprocess: [pip install multiprocess](https://pypi.org/project/multiprocess/)
 ## Notes
   Please connect to the wifi: NinjaRouter
+  After recording, go to ~/Videos/ the recorded media should be there!
