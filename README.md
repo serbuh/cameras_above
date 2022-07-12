@@ -7,7 +7,7 @@
 ### [For all the cameras](record_cameras.sh)
 
 ## Requirements
-- vlc media player - can be installed using Ubuntu Software
+- VLC media player - can be installed using Ubuntu Software
 - ffmpeg - sudo apt install ffmpeg
 - opencv: [pip install opencv-python](https://pypi.org/project/opencv-python/)
 - multiprocess: [pip install multiprocess](https://pypi.org/project/multiprocess/)
