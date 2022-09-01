@@ -14,16 +14,17 @@ dim = (width, height)
 # resize image
 img = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
 print(f'Resized Dimensions: {img.shape}')
-
-# display
 cv2.imshow("Original", img)
 
+# Ranged
 lower = np.array([230])
 upper = np.array([255])
-
 img = cv2.inRange(img, lower, upper)
-
 cv2.imshow("Ranged", img)
+
+# Canny
+img = cv2.Canny(img, 200, 400)
+cv2.imshow("Canny", img)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
