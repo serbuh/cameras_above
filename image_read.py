@@ -2,6 +2,9 @@ import cv2
 import os
 import numpy as np
 import math
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
 
 class LineDetector():
     def __init__(self, scale_factor):
@@ -9,15 +12,15 @@ class LineDetector():
 
         img = cv2.imread(os.path.join('imgs', '0000000.tiff'), cv2.IMREAD_GRAYSCALE)
 
-        print(f'Original Dimensions: {img.shape}')
-        print(f"Downscale factor {scale_factor}")
+        logging.info(f'Original Dimensions: {img.shape}')
+        logging.info(f"Downscale factor {scale_factor}")
         self.width = int(img.shape[1] / scale_factor)
         self.height = int(img.shape[0] / scale_factor)
         dim = (self.width, self.height)
         
         # resize image
         img = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
-        print(f'Resized Dimensions: {img.shape}')
+        logging.info(f'Resized Dimensions: {img.shape}')
         self.show("Original", img)
 
         # Ranged
@@ -60,8 +63,9 @@ class LineDetector():
 
     def show_line_segments(self, line_segments, this_img):
         for line in line_segments:
-            print(f"Line: {(line[0][0], line[0][1])} ,{(line[0][2], line[0][3])}")    
+            logging.info(f"Line: {(line[0][0], line[0][1])} , {(line[0][2], line[0][3])}")    
             cv2.line(this_img, (line[0][0],line[0][1]), (line[0][2], line[0][3]), (150),2)
         self.show("Lines", this_img)
 
 line_detector = LineDetector(scale_factor = 4)
+
